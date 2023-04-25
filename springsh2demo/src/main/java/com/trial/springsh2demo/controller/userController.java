@@ -47,10 +47,10 @@ public class userController {
         }
     }
 
-    @PutMapping("/users")
+    @PutMapping("/users/{id}")
     public ResponseEntity<User> updateUser(@RequestBody User user) {
         try {
-            return new ResponseEntity<>(userRepo.save(user), HttpStatus.OK);
+            return new ResponseEntity<User>(userRepo.save(user), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
